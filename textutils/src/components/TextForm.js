@@ -10,6 +10,13 @@ const handleUpClick=()=>{
     setText(text.toUpperCase())
 }
 
+const handleLoClick=()=>{
+
+    console.log("Upper Case was Clicked");
+    setText(text.toLowerCase())
+}
+
+
 const handleOnChange=(event)=>{
 
 console.log("On Change");
@@ -21,6 +28,7 @@ const [text, setText]= useState("Enter text here")
 
 
   return (
+    <>
     <div>
       <form>
         <div className="form-group">
@@ -33,8 +41,20 @@ const [text, setText]= useState("Enter text here")
         </div>
 
       </form>
-      <button className="btn btn-primary"  onClick={handleUpClick} >Convert to uppercase</button>
+      <button className="btn btn-primary my-3"  onClick={handleUpClick} >Convert to uppercase</button>
+      <button className="btn btn-primary"  onClick={handleLoClick} >Convert to lowercase</button>
 
     </div>
+    <div className="container my-3">
+
+        <h2>Text Summary</h2>
+        <p> {text.split(" ").length} words and {text.length} characters </p>
+        <p>Average Reading Time :  {0.008 * text.split(" ").length} minutes </p>
+        <h3>Preview</h3>
+        <p>{text}</p>
+
+    </div>
+
+    </>
   );
 }
