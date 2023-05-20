@@ -4,6 +4,23 @@ import { useState } from "react";
 
 export default function TextForm(props) {
 
+
+    const handleMailClick=()=>{
+
+        console.log("Mail Click was Clicked");
+        if (text.endsWith("@gmail.com")){
+        setText("Yes!");
+        }
+        else{
+            setText("No!");
+ 
+        }
+    }
+    
+
+
+
+
 const handleUpClick=()=>{
 
     console.log("Upper Case was Clicked");
@@ -17,6 +34,15 @@ const handleLoClick=()=>{
 }
 
 
+const handleClearClick=()=>{
+
+    console.log("Clear was Clicked");
+    setText("")
+}
+
+
+
+
 const handleOnChange=(event)=>{
 
 console.log("On Change");
@@ -24,7 +50,12 @@ setText(event.target.value)
 
 }
 
-const [text, setText]= useState("Enter text here")
+
+
+
+
+
+const [text, setText]= useState("")
 
 
   return (
@@ -32,7 +63,7 @@ const [text, setText]= useState("Enter text here")
     <div>
       <form>
         <div className="form-group">
-            <h1>{props.heading}</h1>
+            <h3>{props.heading}</h3>
           <textarea
             className="form-control"
             id="exampleFormControlTextarea1"
@@ -41,8 +72,10 @@ const [text, setText]= useState("Enter text here")
         </div>
 
       </form>
-      <button className="btn btn-primary my-3"  onClick={handleUpClick} >Convert to uppercase</button>
-      <button className="btn btn-primary"  onClick={handleLoClick} >Convert to lowercase</button>
+      <button className="btn btn-primary my-1 mx-1"  onClick={handleUpClick} >Convert to uppercase</button>
+      <button className="btn btn-primary my-1 mx-1"  onClick={handleLoClick} >Convert to lowercase</button>
+      <button className="btn btn-primary my-1 mx-1"  onClick={handleClearClick} >Clear</button>
+      <button className="btn btn-primary my-1 mx-1"  onClick={handleMailClick} >Mail Check</button>
 
     </div>
     <div className="container my-3">
