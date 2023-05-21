@@ -62,9 +62,11 @@ const [text, setText]= useState("")
     <>
     <div>
       <form>
-        <div className="form-group">
+        <div className="form-group" style={{color:  props.mode === 'dark'? 'grey':'light'}}
+>
             <h3>{props.heading}</h3>
           <textarea
+            style={{backgroundColor:  props.mode === 'dark'? 'grey':'light'}}
             className="form-control"
             id="exampleFormControlTextarea1"
             rows="8" value={text} onChange={handleOnChange}
@@ -78,13 +80,13 @@ const [text, setText]= useState("")
       <button className="btn btn-primary my-1 mx-1"  onClick={handleMailClick} >Mail Check</button>
 
     </div>
-    <div className="container my-3">
+    <div className="container my-3"  style={{color:  props.mode === 'dark'? 'white':'#001126'}}>
 
         <h2>Text Summary</h2>
         <p> {text.split(" ").length} words and {text.length} characters </p>
         <p>Average Reading Time :  {0.008 * text.split(" ").length} minutes </p>
         <h3>Preview</h3>
-        <p>{text}</p>
+        <p>{text.length>0?text:"Please Write something for Preview"}</p>
 
     </div>
 
